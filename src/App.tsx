@@ -1,12 +1,23 @@
-import Layout from "./Layout"
-const App = () => {
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import { ReactNode } from "react";
+import Contact from "./pages/Contact";
+import Policy from "./pages/Policy";
+import PageNotFound from "./pages/PageNotFound";
+
+const App = (): ReactNode => {
   return (
     <>
-    <Layout>
-    <div>App</div>
-    </Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/policy" element={<Policy />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
